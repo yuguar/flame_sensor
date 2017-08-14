@@ -60,7 +60,10 @@ void dacupdate() {
   index = (index + 1) & 31;
 }
 
-void loop() {
+void loop()
+{
+  // Start by driving the 10nF capacitor LOW to
+  // clear any previously accumulated reading
   pinMode(16, OUTPUT);
   digitalWrite(16, LOW);
   delayMicroseconds(100);
@@ -70,16 +73,19 @@ void loop() {
     // reproducible result than starting at random AC phase
   }
   pinMode(16, INPUT_DISABLE);
+
+  // Measure how long it takes the charge.
   elapsedMicros usec = 0;
   while (usec < THRESHOLD_1_LED) {
     int a = analogRead(16);
     if (a > 650) break;
     delayMicroseconds(25); // limit ADC speed, less charge injection
   }
-  // flame is actual measurement, smaller numbers = more fire
-  unsigned int flame = usec;
-  Serial.print("flame = ");
+  unsigned int flame = usec;  // "flame" is actual measurement
+  Serial.print("flame = ");   // smaller numbers = more fire
   Serial.println(flame);
+
+  // Always show the immediate measurement on the green LEDs
   bool flameok = false;
   if (flame >= THRESHOLD_TOOMUCH && flame < THRESHOLD_3_LED) {
     // Strong signal, all 3 LEDs on
@@ -106,6 +112,10 @@ void loop() {
     digitalWrite(17, LOW);
     flameok = false;
   }
+
+  // Decide whether enough flame has been recently seen
+  // to safely turn on the pilot light gas and the relay
+  // to enable the rest of the system
   bool gas_triggered = false;
   if (flameok) {
     // Fire detected, any signal strength
@@ -127,7 +137,10 @@ void loop() {
     // will automatically turn off gas & relay
     consecutive_flame_ok_count = 0;
   }
-  
+
+  // Alternately, turn on just the pilot light gas
+  // if the user is pressing the button to manaully
+  // turn it on for lighting
   if (!gas_triggered && digitalRead(2) == LOW) {
     // Trigger gas only when red button pressed
     digitalWrite(14, HIGH);
@@ -137,7 +150,10 @@ void loop() {
   } else {
     digitalWrite(14, LOW);
   }
-  
+
+  // Always slowly blink the orange LED on Teensy
+  // to show the code is running and making flame
+  // measurements.
   if (ok_led_millis > 1500) {
     ok_led_millis -= 1500;
     if (ok_led_state) {
