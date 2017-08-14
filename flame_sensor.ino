@@ -22,6 +22,7 @@ volatile bool newcycle=false;
 uint32_t consecutive_flame_ok_count=0;
 elapsedMillis ok_led_millis;
 bool ok_led_state;
+elapsedMillis button_timer;
 
 #define THRESHOLD_TOOMUCH   900
 #define THRESHOLD_3_LED    6000
@@ -51,6 +52,7 @@ void setup() {
     dacdata[i] = sinf(float(i) * (2.0 * 3.14159 / 32.0)) * 2046 + 2048;
   }
   dactimer.begin(dacupdate, 31.25);
+  button_timer = 100000;
 }
 
 void dacupdate() {
@@ -141,14 +143,21 @@ void loop()
   // Alternately, turn on just the pilot light gas
   // if the user is pressing the button to manaully
   // turn it on for lighting
-  if (!gas_triggered && digitalRead(2) == LOW) {
+  int button = digitalRead(2);
+  if (!gas_triggered && button == LOW && button_timer < 20000) {
     // Trigger gas only when red button pressed
-    digitalWrite(14, HIGH);
+    // but only turn on gas for 20 seconds maximum
+    // if the button fails stuck in the pressed
+    // state, gas can't stay on indefinitely
+    digitalWrite(14, HIGH); 
     digitalWrite(11, HIGH);
     delayMicroseconds(50);
     digitalWrite(11, LOW);
   } else {
     digitalWrite(14, LOW);
+  }
+  if (button == HIGH) {
+    button_timer = 0;
   }
 
   // Always slowly blink the orange LED on Teensy
