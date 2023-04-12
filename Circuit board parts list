@@ -1,0 +1,91 @@
+  1  Teensy LC
+
+  3  LED, Green
+
+  1  LED, Red
+
+  1  Relay, RT424012, Mouser 655-RT424012
+
+  1  Terminal Block Header, 4 pin, Phoenix 1755752, 277-1152-ND
+
+  1  Terminal Block Header, 6 pin, Phoenix 1755778, 277-1154-ND
+
+  1  Connector, 2 pin right angle header, Molex 22-05-3021
+
+  1  LMC6482A Opamp, LMC6482AIMX
+
+  1  74VHC123 Dual One-shot, 74VHC123AMXCT-ND
+
+  1  LM2940IMPX-5.0 Voltage Regulator, LM2940IMPX-5.0/NOPBCT-ND
+
+  1  Transformer, Audio 1K:8ohm, Mouser/Xicon TU003, Mouser 42TU003-RC
+
+  2  IRFR5305 Mosfet, P-channel, IRFR5305PBFCT-ND
+
+  2  PNP Transistor, 2N5087, TO-92, 2N5087-ND, 2N5087CS-ND
+
+  2  Resistor, 10 ohm, 1%, 0805
+
+  3  Resistor, 220 ohm, 1%, 0603
+
+  2  Resistor, 470 ohm, 1%, 0603
+
+  6  Resistor, 1K, 1%, 0603
+
+  1  Resistor, 4.7K, 1%, 0805 (add between gas solenoid output pins)
+
+  8  Resistor, 10K, 1%, 0603
+
+  1  Resistor, 22K, 1%, 0603
+
+  2  Resistor, 47K, 1%, 0603
+
+  1  Resistor, 100K, 1%, 0603
+
+  2  Resistor, 220K, 1%, 0805
+
+  1  Resistor, 470K, 1%, 0805
+
+  5  Resistor, 1M, 1%, 0805
+
+  3  Capacitor, 4.7nF, C0G, 0805, 1276-6729-1-ND
+
+  1  Capacitor, 1nF, 100V, Polyester Film, 493-3476-ND
+
+  1  Capacitor, 10nF, 50V, Polyester Film, 493-3455-ND
+
+  2  Capacitor, 0.1uF, 50V, X7R, 0603
+
+  7  Capacitor, 1uF, 35V, X7R, 0805
+
+  1  Capacitor, 100uF, radial, 6.3mm diameter, 493-13394-ND
+
+  1  Capacitor, 100uF, 6.3V Tantalum
+
+  1  Capacitor, 470uF, axial, 4053PHCT-ND or 4054PHBK-ND
+
+  3  Diode, Dual Common Cathode, MMBD4148, MMBD4148CCCT-ND, MMBD4148CC-TPMSCT-ND
+
+  1  Diode, Dual Schottky Common Cathode, BAT54C, BAT54C-FDICT-ND
+
+  1  Diode, Schottky, 1A, 30V, B130, B130-FDICT-ND
+
+  1  Diode, Zener, 12V, 1SMB5927, 1SMB5927BT3GOSCT-ND
+
+  4  NPN Transistor, MMBT3904, MMBT3904FSCT-ND
+
+  1  PNP Transistor, MMBT3906, MMBT3906FSCT-ND
+
+  1  Pushbutton, 401-1426-1-ND (optional)
+
+  2  header, 14 pins
+
+  1  header, 4 pins (ok to cut from longer header)
+
+  2  socket, 14 pins
+
+  1  socket, 4 pins (ok to cut from longer socket, may need to shave side to fit)
+
+  0  Connector, 3 pin right angle header, Molex 22-05-3031 --- not used
+
+  0  MAX3483 RS485 Transceiver --- not used
